@@ -26,6 +26,9 @@ Filenames are formatted as "./data/YYYYMMDD-temp_pres_data.csv".
 ## [webinterface.html](webinterface.html)
 
 Static page, running Plotly graphing library.
+
 Calls to local host to recieve updated JSON data.
+
 Currently, have not fixed bug for Plotly updating with JSON packets, but can recieve (see console for log).
+
 May require enabling of CORS (Cross-Origin Resource Sharing), by default disabled/blocked in Firefox.
