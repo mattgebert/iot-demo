@@ -56,7 +56,10 @@ def acquireData(data_save_path):
         datafile.write("\n")
     return
 
+async def app():
+    acquireData(DATA_SAVE_PATH)
+    await asyncio.sleep(3)
+
 if __name__ == "__main__":
     while True:
-        acquireData(DATA_SAVE_PATH)
-        asyncio.sleep(3)
+        asyncio.run(app())

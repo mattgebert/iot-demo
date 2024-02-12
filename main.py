@@ -109,14 +109,16 @@ async def read_past_day():
         full_data = datafiles[0]
         
     # Convert datetime to appropriate Plotly string.
-    df["Datetime (UTC)"].dt.strftime('%Y-%m-%d %H:%M:%S') #2013-10-04 22:23:00
+    df["Datetime (UTC)"] = df["Datetime (UTC)"].dt.strftime('%Y-%m-%d %X') #2013-10-04 22:23:00
     timestamps = full_data["Datetime (UTC)"].to_list()
     timestrings = [str(t) for t in timestamps]
+    print(timestrings[0:5])
     
     json = {
         "data" : [{
             "x" : timestrings,
             "y" : full_data[full_data.columns[1]].to_list(),
+            "z" : full_data[full_data.columns[2]].to_list(),
             "type" : "scatter",
         }]
     }   
